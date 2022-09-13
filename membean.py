@@ -73,20 +73,30 @@ if __name__ == "__main__":
             #if Question type: Single is found
             if check_exists_by_css('#single-question > h3') == True:
                 print("Question type: Single")
-                print('\n')
                 sleep(4)
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
                 driver.execute_script("arguments[0].click();", passEvent)
+                print("Answered")
+                print('\n')
             elif check_exists_by_css('#single-question > h3') == False:
                 pass
+
+            if check_exists_by_css('#single-question > p') == True:
+                print("Question type: Single")
+                sleep(4)
+                passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
+                driver.execute_script("arguments[0].click();", passEvent)
+                print("Answered")
+                print('\n')
 
             #if Question type: Word Fill is found
             if check_exists_by_css('#word-hint') == True:
                 print("Question type: Word Fill")
-                print('\n')
                 sleep(4)
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
                 driver.execute_script("arguments[0].click();", passEvent)
+                print("Answered")
+                print('\n')
             elif check_exists_by_css('#word-hint') == False:
                 pass
 
