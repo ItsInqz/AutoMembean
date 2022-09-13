@@ -71,23 +71,21 @@ if __name__ == "__main__":
     while i < 100:
         try:
             #if Question type: Single is found
-            if check_exists_by_xpath('//*[@id="single-question"]/h3/strong') == True:
+            if check_exists_by_css('#single-question > h3') == True:
                 print("Question type: Single")
                 print('\n')
-                sleep(1)
+                sleep(4)
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
-                sleep(5)
                 driver.execute_script("arguments[0].click();", passEvent)
-            elif check_exists_by_xpath('//*[@id="single-question"]/h3/strong') == False:
+            elif check_exists_by_css('#single-question > h3') == False:
                 pass
 
             #if Question type: Word Fill is found
             if check_exists_by_css('#word-hint') == True:
                 print("Question type: Word Fill")
                 print('\n')
-                sleep(1)
+                sleep(4)
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
-                sleep(5)
                 driver.execute_script("arguments[0].click();", passEvent)
             elif check_exists_by_css('#word-hint') == False:
                 pass
@@ -96,7 +94,7 @@ if __name__ == "__main__":
             if check_exists_by_xpath('//*[@id="interstitial"]/img') == True:
                 print("ornament")
                 print('\n')
-                sleep(5)
+                sleep(4)
 
                 #add event here for when the close session button comes on
 
@@ -111,7 +109,7 @@ if __name__ == "__main__":
             #if definition page is found
             if check_exists_by_css('#add-note') == True:
                 print("Wordform")
-                sleep(5)
+                sleep(4)
                 wordformCon = driver.find_element("id", 'wordform-container')
                 wordform = driver.find_element(By.CSS_SELECTOR, '#wordform-container > h1').text
                 print(wordform)
@@ -124,12 +122,12 @@ if __name__ == "__main__":
                     driver.find_element(By.CSS_SELECTOR, '#choice-section > li.choice.answer').click()
                 elif check_exists_by_css('#choice-section > li.choice.answer') == False:
                     pass
-                sleep(5)
+                sleep(4)
                 if check_exists_by_xpath('//*[@id="next-btn"]') == True:
                     driver.find_element("xpath", '//*[@id="next-btn"]').click()
                 elif check_exists_by_xpath('//*[@id="next-btn"]') == False:
                     pass
-                sleep(5)
+                sleep(4)
             elif check_exists_by_css('#add-note') == False:
                 pass
             
@@ -145,4 +143,3 @@ if __name__ == "__main__":
         except:
             print("ERROR")
             print('\n')
-
