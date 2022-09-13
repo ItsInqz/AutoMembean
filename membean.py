@@ -81,6 +81,17 @@ if __name__ == "__main__":
             elif check_exists_by_xpath('//*[@id="single-question"]/h3/strong') == False:
                 pass
 
+            #if Question type: Word Fill is found
+            if check_exists_by_css('#word-hint') == True:
+                print("Question type: Word Fill")
+                print('\n')
+                sleep(1)
+                passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
+                sleep(5)
+                driver.execute_script("arguments[0].click();", passEvent)
+            elif check_exists_by_css('#word-hint') == False:
+                pass
+
             #if ornament is found
             if check_exists_by_xpath('//*[@id="interstitial"]/img') == True:
                 print("ornament")
@@ -134,3 +145,4 @@ if __name__ == "__main__":
         except:
             print("ERROR")
             print('\n')
+
