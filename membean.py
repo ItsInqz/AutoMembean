@@ -108,8 +108,16 @@ if __name__ == "__main__":
                 print('\n')
                 sleep(4)
 
-                #add event here for when the close session button comes on
+                #event for when the close session button comes on
+                if check_exists_by_xpath('//*[@id="Click_me_to_stop"]') == True:
+                    driver.find_element("xpath", '//*[@id="Click_me_to_stop"]').click()
+                    print("Session Ended")
+                    print('\n')
+                    break
+                elif check_exists_by_xpath('//*[@id="Click_me_to_stop"]') == False:
+                    pass
 
+                #event for when anything else comes on
                 if check_exists_by_xpath('//*[@id="Let_rsquo_s_continue"]') == True:
                     driver.find_element("xpath", '//*[@id="Let_rsquo_s_continue"]').click()
                 elif check_exists_by_xpath('//*[@id="Let_rsquo_s_continue"]') == False:
