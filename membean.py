@@ -24,8 +24,8 @@ from selenium.common.exceptions import ElementNotInteractableException
 if __name__ == "__main__":
     load_dotenv()
 
-    usernameEnv = os.getenv("username")
-    passwordEnv = os.getenv("password")
+    gmail_username = os.getenv("gmail_username")
+    gmail_password = os.getenv("gmail_password")
 
     driver = uc.Chrome()
     driver.get("https://membean.com/login")
@@ -36,13 +36,13 @@ if __name__ == "__main__":
 
     #input username
     username = driver.find_element("xpath", '//*[@id="identifierId"]')
-    username.send_keys(usernameEnv)
+    username.send_keys(gmail_username)
     driver.find_element("xpath", '//*[@id="identifierNext"]/div/button/span').click()
     sleep(5)
 
     #input password
     password = driver.find_element("xpath", '//*[@id="password"]/div[1]/div/div[1]/input')
-    password.send_keys(passwordEnv)
+    password.send_keys(gmail_password)
     driver.find_element("xpath", '//*[@id="passwordNext"]/div/button/span').click()
     sleep(5)
 
