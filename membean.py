@@ -88,6 +88,8 @@ if __name__ == "__main__":
                 driver.execute_script("arguments[0].click();", passEvent)
                 print("Answered")
                 print('\n')
+            elif check_exists_by_css('#single-question > p') == False:
+                pass
 
             #if Question type: Word Fill is found
             if check_exists_by_css('#word-hint') == True:
