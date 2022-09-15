@@ -147,6 +147,7 @@ if __name__ == "__main__":
                     print("Question type: Wordpage Question")
                     driver.find_element(By.CSS_SELECTOR, '#choice-section > li.choice.answer').click()
                     print("Answered")
+                    print('\n')
                 elif check_exists_by_css('#choice-section > li.choice.answer') == False:
                     pass
                 sleep(4)
@@ -167,6 +168,7 @@ if __name__ == "__main__":
                 wordInput = driver.find_element("xpath", '//*[@id="choice"]')
                 wordInput.send_keys(word)
                 print("Answered")
+                print('\n')
             elif check_exists_by_xpath('//*[@id="wordspell-wrapper"]') == False:
                 pass
         except:
