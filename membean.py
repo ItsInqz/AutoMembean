@@ -153,6 +153,7 @@ if __name__ == "__main__":
             
             #if spelling page is found
             if check_exists_by_xpath('//*[@id="wordspell-wrapper"]') == True:
+                print("Wordspell")
                 with open('word.txt') as f:
                     word = f.readlines()
                 wordInput = driver.find_element("xpath", '//*[@id="choice"]')
