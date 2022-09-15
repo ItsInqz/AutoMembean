@@ -113,6 +113,10 @@ if __name__ == "__main__":
                     driver.find_element("xpath", '//*[@id="Click_me_to_stop"]').click()
                     print("Session Ended")
                     print('\n')
+                    if os.path.exists("word.txt"):
+                        os.remove("word.txt")
+                    else:
+                        pass
                     break
                 elif check_exists_by_xpath('//*[@id="Click_me_to_stop"]') == False:
                     pass
