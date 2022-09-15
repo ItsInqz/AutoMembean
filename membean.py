@@ -72,8 +72,8 @@ if __name__ == "__main__":
         try:
             #if Question type: Single is found
             if check_exists_by_css('#single-question > h3') == True:
-                print("Question type: Single")
                 sleep(4)
+                print("Question type: Single")
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
                 driver.execute_script("arguments[0].click();", passEvent)
                 print("Answered")
@@ -82,8 +82,8 @@ if __name__ == "__main__":
                 pass
 
             if check_exists_by_css('#single-question > p') == True:
-                print("Question type: Single")
                 sleep(4)
+                print("Question type: Single")
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
                 driver.execute_script("arguments[0].click();", passEvent)
                 print("Answered")
@@ -93,8 +93,8 @@ if __name__ == "__main__":
 
             #if Question type: Word Fill is found
             if check_exists_by_css('#word-hint') == True:
-                print("Question type: Word Fill")
                 sleep(4)
+                print("Question type: Word Fill")
                 passEvent = driver.find_element("xpath", '//*[@id="pass__event"]')
                 driver.execute_script("arguments[0].click();", passEvent)
                 print("Answered")
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
             #if ornament is found
             if check_exists_by_xpath('//*[@id="interstitial"]/img') == True:
-                print("ornament")
+                print("Ornament")
                 print('\n')
                 sleep(4)
 
@@ -128,8 +128,8 @@ if __name__ == "__main__":
 
             #if definition page is found
             if check_exists_by_css('#add-note') == True:
-                print("Wordform")
                 sleep(4)
+                print("Word")
                 wordformCon = driver.find_element("id", 'wordform-container')
                 wordform = driver.find_element(By.CSS_SELECTOR, '#wordform-container > h1').text
                 print(wordform)
@@ -139,7 +139,10 @@ if __name__ == "__main__":
                 sleep(2)
 
                 if check_exists_by_css('#choice-section > li.choice.answer') == True:
+                    sleep(4)
+                    print("Question type: Wordpage Question")
                     driver.find_element(By.CSS_SELECTOR, '#choice-section > li.choice.answer').click()
+                    print("Answered")
                 elif check_exists_by_css('#choice-section > li.choice.answer') == False:
                     pass
                 sleep(4)
@@ -153,12 +156,13 @@ if __name__ == "__main__":
             
             #if spelling page is found
             if check_exists_by_xpath('//*[@id="wordspell-wrapper"]') == True:
+                sleep(4)
                 print("Wordspell")
                 with open('word.txt') as f:
                     word = f.readlines()
                 wordInput = driver.find_element("xpath", '//*[@id="choice"]')
                 wordInput.send_keys(word)
-                sleep(2)
+                print("Answered")
             elif check_exists_by_xpath('//*[@id="wordspell-wrapper"]') == False:
                 pass
         except:
