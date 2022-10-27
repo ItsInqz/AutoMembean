@@ -26,6 +26,9 @@ if __name__ == "__main__":
 
     gmail_username = os.getenv("gmail_username")
     gmail_password = os.getenv("gmail_password")
+    
+    print("Username: " +gmail_username)
+    print("Password: " +gmail_password)
 
     driver = uc.Chrome()
     driver.get("https://membean.com/login")
@@ -172,6 +175,5 @@ if __name__ == "__main__":
             elif check_exists_by_xpath('//*[@id="interstitial"]/img') == False:
                 pass
 
-        except:
-            print("ERROR")
-            print('\n')
+        except Exception as e: 
+            print(e)
