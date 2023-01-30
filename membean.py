@@ -67,8 +67,8 @@ if __name__ == "__main__":
             return False
         return True
 
-    if check_exists_by_xpath('//*[@id="15_min_"]') == True:
-        driver.find_element("xpath", '//*[@id="15_min_"]').click()
+    if check_exists_by_xpath('//*[@id="30_min_"]') == True:
+        driver.find_element("xpath", '//*[@id="30_min_"]').click()
         sleep(4)
         
     i = 1
